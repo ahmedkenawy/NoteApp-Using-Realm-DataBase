@@ -26,4 +26,4 @@ This is a simple Note project showing how to use CRUD Operations in Realm databa
  
 # ِApp ScreenShots :
 
-![App Screen Shot](https://user-images.githubusercontent.com/50085672/204832173-160013b9-e06a-444e-be76-ddaf17eca5cb.png)
+<img width="485" alt="App Screen Shot@2x" src="https://user-images.githubusercontent.com/50085672/204886286-e4235ea6-c922-4724-b232-efcc48919126.png">
