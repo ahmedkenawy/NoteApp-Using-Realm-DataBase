@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Note App</string>
+    <string name="test">Ahmed Saad</string>
+    <string name="save">Save</string>
 </resources>
