@@ -15,7 +15,7 @@ Are you looking for a short, precise list of points to choose Realm? Here’s wh
 
 # ِAbout Project :
 
-This is a simple Note project showing how to use it CRUD Operations 
+This is a simple Note project showing how to use CRUD Operations in Realm database. 
 
  1. create a Note
  2. Read Note
