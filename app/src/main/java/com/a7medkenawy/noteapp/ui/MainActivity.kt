@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setUpFab()
-        setUpRecyclerView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(com.a7medkenawy.noteapp.R.menu.menu_delete, menu)
+        inflater.inflate(R.menu.menu_delete, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -82,7 +82,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        noteAdapter.notifyDataSetChanged()
+        if(noteManager.getAllNotes.size==0){
+            binding.textView.visibility=View.VISIBLE
+            binding.recyclerView.visibility=View.GONE
+        }else{
+            binding.textView.visibility=View.GONE
+            binding.recyclerView.visibility=View.VISIBLE
+            setUpRecyclerView()
+            noteAdapter.notifyDataSetChanged()
+        }
+
     }
 
 }
