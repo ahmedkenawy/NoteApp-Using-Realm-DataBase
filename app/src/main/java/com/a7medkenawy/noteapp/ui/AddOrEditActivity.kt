@@ -1,31 +1,44 @@
 package com.a7medkenawy.noteapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.a7medkenawy.noteapp.databinding.ActivityAddOrEditBinding
 import com.a7medkenawy.noteapp.model.Note
 import com.a7medkenawy.noteapp.realmmananger.NoteManager
 
 class AddOrEditActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddOrEditBinding
-    val noteManager by lazy { NoteManager() }
-
+    private val realmManager: NoteManager by lazy { NoteManager() }
+    var note: Note? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddOrEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val id = System.currentTimeMillis().toString()
-        val content = binding.addOrEditNoteEd.text.toString()
+        val intent = intent.extras
+        if (intent != null) {
+            fillEditText(intent)
+        }
+        saveOrUpdateNote()
 
-        saveOrUpdateNote(id, content)
+
     }
 
-    private fun saveOrUpdateNote(id: String, content: String?) {
+    private fun fillEditText(intent: Bundle) {
+        binding.saveBtn.text = "Update"
+        note = intent.getParcelable("myNote")!!
+        binding.addOrEditNoteEd.setText(note!!.content)
+    }
+
+    private fun saveOrUpdateNote() {
         binding.saveBtn.setOnClickListener {
-            val note = Note(id, content)
-            noteManager.addNote(note)
+            var id = if (intent.extras != null)
+                note!!.id
+            else
+                System.currentTimeMillis().toString()
+            val note = Note(id, binding.addOrEditNoteEd.text.trim().toString())
+            realmManager.addNoteOrUpdate(note)
             finish()
         }
 
