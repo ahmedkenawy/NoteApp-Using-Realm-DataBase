@@ -24,6 +24,20 @@ This is a simple Note project showing how to use CRUD Operations in Realm databa
  5. Delete All
  
  
+# ِRoom (VS) Realm  :
+
+***Realm***
+
+A relatively fast and convenient library, all links are simply implemented, which is related to the object orientation of the database. Excellent documentation. Is, perhaps, one of the best options for storing data on a mobile device at the moment, the minus can only be an increase in the size of the apk-file by 2.5 MB.
+
+***Room***
+
+An interesting solution presented on Google I / O 2017 is optimal for working with the database on Android OS. Despite the fact that it is necessary to use explicit SQL requests, the library turned out to be quite convenient and I liked it personally. Performance is in the lead, so I would advise you to choose this particular library. The big advantage of this is based on a built-in SQLite database. Since this solution, submitted by Google, will quickly become popular, and, therefore, there will be no problems with finding solutions to problems that occur along with it.
+
+Realm uses more RAM and increases the apk size, and build time. So I prefer Room.
+
+There are comparison: https://github.com/AlexeyZatsepin/Android-ORM-benchmark
+
 # ِApp ScreenShots :
 
 <img width="485" alt="App Screen Shot@2x" src="https://user-images.githubusercontent.com/50085672/204886286-e4235ea6-c922-4724-b232-efcc48919126.png">
