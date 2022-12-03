@@ -25,12 +25,15 @@ class AddOrEditActivity : AppCompatActivity() {
 
     }
 
+    //when you come from MainActivity with data it will be write in the edit text field and save button will change to _update_ button
     private fun fillEditText(intent: Bundle) {
         binding.saveBtn.text = "Update"
         note = intent.getParcelable("myNote")!!
         binding.addOrEditNoteEd.setText(note!!.content)
     }
 
+
+    //when you click save button/ update button changes will be saved in database
     private fun saveOrUpdateNote() {
         binding.saveBtn.setOnClickListener {
             var id = if (intent.extras != null)
